@@ -1,17 +1,24 @@
 import { account, transaction } from "./types";
-
-//const baseUrl = "http://localhost:3000";
-const baseUrl = "https://db-json-brown.vercel.app/";
+//const baseUrl = "https://db-json-seven-lime.vercel.app";
+const baseUrl = "http://localhost:3000";
 const headers = {
-  "Content-type": "application/json",
+  "Content-Type": "application/json",
+  credentials: "include", // Include credentials in the request
+  mode: "cors", // Enable CORS mode
 };
 
 const getAllTransactions = () => {
-  return fetch(`${baseUrl}/transactions`).then((data) => data.json());
+  return fetch(`${baseUrl}/transactions`, {
+    method: "GET",
+    headers,
+  }).then((data) => data.json());
 };
 
 const getTransactionById = (id: number): Promise<transaction> => {
-  return fetch(`${baseUrl}/transactions/${id}`).then((data) => data.json());
+  return fetch(`${baseUrl}/transactions/${id}`, {
+    method: "GET",
+    headers,
+  }).then((data) => data.json());
 };
 
 const postTransaction = ({
@@ -31,6 +38,7 @@ const postTransaction = ({
 const deleteTransactionRequest = (id: number) => {
   return fetch(`${baseUrl}/transactions/${id}`, {
     method: "DELETE",
+    headers,
   })
     .then((response) => response)
     .catch((error) => {
@@ -39,9 +47,21 @@ const deleteTransactionRequest = (id: number) => {
 };
 
 const getAccountBalance = (id: number): Promise<number> => {
-  return fetch(`${baseUrl}/accounts/${id}`)
-    .then((response) => response.json())
-    .then((data) => data.balance);
+  return fetch(`${baseUrl}/accounts/${id}`, {
+    method: "GET",
+    headers,
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => data.balance)
+    .catch((error) => {
+      console.error("Error fetching account balance:", error);
+      throw error; // Rethrow the error for further handling
+    });
 };
 
 const updateAccountBalance = (id: number, updatedAccount: Partial<account>) => {

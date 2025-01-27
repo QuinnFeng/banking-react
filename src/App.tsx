@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import "./index.css";
 import "./cadence/cadence.css";
@@ -9,6 +9,8 @@ import { Balance } from "./components/balance";
 import { TransactionProvider } from "./components/TransactionProvider";
 import { AddTransaction } from "./components/addTransaction";
 import { descriptions } from "./util/const";
+import { transactionRequests } from "./api";
+import { LandingPage } from "./cadence/landing";
 
 function App() {
   const [page, setPage] = useState("My Accounts");
@@ -18,7 +20,7 @@ function App() {
 
   return (
     <>
-      <Header
+      {/* <Header
         page={page}
         setPage={setPage}
       />
@@ -31,7 +33,7 @@ function App() {
       <button
         className="btn"
         onClick={() => setIsCreate(!isCreate)}
-        style={{ display: "none" }}
+        // style={{ display: "none" }}
       >
         {isCreate ? "Home" : "Post Transaction"}
       </button>
@@ -46,13 +48,13 @@ function App() {
             <Transactions />
           </section>
         )}
-      </TransactionProvider>
+      </TransactionProvider> */}
       <datalist id="descriptions">
         {descriptions.map((description) => (
           <option key={description}>{description}</option>
         ))}
       </datalist>
-      {/* <LandingPage /> */}
+      <LandingPage />
     </>
   );
 }

@@ -6,7 +6,7 @@
 
 .container {
   width: 100%;
-  padding: 0 2.5rem;
+  padding: 0 2.7rem;
 }
 .cb-header {
   display: flex;
@@ -18,19 +18,21 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: end;
+  align-items: center;
 }
 
 .cb-logo {
-  width: 8.75rem;
-  height: 4.5rem;
+  width: 13rem;
+  height: 6rem;
+  margin-right: 10rem;
 }
 
 .inquiry {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   height: 2rem;
   align-items: center;
+  font-size: 1rem;
 }
 
 .inquiry li {
@@ -50,9 +52,9 @@
 .navs li {
   color: var(--cadence);
   font-weight: 600;
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   position: relative;
-  display: inline-block;
+  display: inline-flex;
 }
 
 .navs li::before {
@@ -70,25 +72,27 @@
   width: 100%;
 }
 
-.navs li i {
-  font-size: 0.625rem;
-  margin-left: 0.25rem;
+.arrow-icon {
+  margin-left: 0.5rem;
   font-weight: bold;
+  margin-left: 0px;
+  margin-top: 5px;
 }
 
 .search {
   border: none;
   background-color: white;
-  padding: 0.325rem;
-  border-radius: 1.10625rem;
+  padding: 0.4rem;
+  border-radius: 1.4rem;
   transition: background-color 0.3s;
   margin-right: 0.25rem;
 }
 
 .search i {
-  font-size: 1.5625rem;
+  font-size: 2rem;
   color: var(--cadence);
   transition: color 0.3s;
+  font-weight: 600;
 }
 
 .search:hover {
@@ -100,13 +104,27 @@
 }
 
 .login {
-  background-color: #ffc000;
+  background-color: #ffc561;
   color: var(--cadence);
   border-radius: 5px;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 2.5rem;
+  border: none;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.8;
+}
+
+.login i {
+  margin-right: 0.5rem;
+}
+
+.login:hover {
+  background-color: var(--cadence);
+  color: white;
 }
 
 .buttons {
   display: flex;
-  align-items: end;
+  align-items: center;
+  gap: 0.75rem;
 }
