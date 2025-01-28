@@ -141,3 +141,7 @@ hr {
     max-width: 1300px;
   }
 } */
+
+input {
+  outline: none;
+}

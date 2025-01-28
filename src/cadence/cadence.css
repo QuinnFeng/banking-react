@@ -57,7 +57,7 @@
   display: inline-flex;
 }
 
-.navs li::before {
+.navs li span::before {
   content: "";
   position: absolute;
   width: 0;
@@ -66,10 +66,11 @@
   bottom: 0;
   left: 0;
   transition: width 0.7s;
+  margin-left: 0.1rem;
 }
 
-.navs li:hover::before {
-  width: 100%;
+.navs li span:hover::before {
+  width: calc(100% - 1.25rem);
 }
 
 .arrow-icon {
@@ -127,4 +128,138 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
+}
+
+.login-container {
+  position: relative;
+  width: 100%;
+}
+
+.login-main {
+  background-color: var(--cadence);
+  color: white;
+  position: absolute;
+  top: 2.5rem;
+  width: 100%;
+  display: block;
+  padding: 5rem 0;
+}
+
+.login-toggle {
+  position: absolute;
+  top: 0.75rem;
+  right: 4rem;
+  color: white;
+  font-size: 3rem;
+  background-color: transparent;
+  border: none;
+}
+
+.login-main h2 {
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
+.login-box {
+  width: 100%;
+  display: flex;
+  gap: 10rem;
+  justify-content: center;
+}
+
+.auth {
+  background-color: transparent;
+  border: 1px solid white;
+  margin: 1rem 0;
+  padding-left: 1rem;
+  border-radius: 5px;
+  width: 30rem;
+  padding-top: 0.25rem;
+  line-height: 1.4;
+}
+
+.auth input {
+  background-color: transparent;
+  color: white;
+  border: none;
+}
+
+.auth-div {
+  display: flex;
+}
+
+.eye {
+  margin: 0 1rem 0 auto;
+  font-size: 1.25rem;
+}
+
+.password input {
+  font-size: 1.25rem;
+  font-weight: 600;
+  padding-bottom: 0.75rem;
+  height: 1.75rem;
+}
+
+.resets {
+  display: flex;
+  gap: 1rem;
+}
+
+.resets span {
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.resets span:hover {
+  text-decoration: none;
+}
+
+.login-button {
+  width: 30rem;
+  border-radius: 4px;
+  color: #156517;
+  font: normal 700 16px/1.5rem "Open Sans", sans-serif;
+  line-height: 1.5rem;
+  padding: 9px 18px;
+  text-align: center;
+  display: inline-block;
+  margin: 1rem 0;
+}
+
+.login-button:hover {
+  background-color: #c2eebb;
+}
+
+.register,
+.security {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.register span {
+  margin-left: 0.25rem;
+  text-decoration: underline;
+}
+
+.register span:hover {
+  text-decoration: none;
+}
+
+.security {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.shield {
+  font-size: 1.5rem;
+}
+
+.accounts li {
+  font-size: 1.75rem;
+  text-decoration: underline;
+  margin-top: 0.75rem;
 }

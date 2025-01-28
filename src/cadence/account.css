@@ -1,0 +1,46 @@
+.main {
+  color: var(--cadence);
+}
+.cadence-header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 2rem;
+}
+
+.initials {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 1rem;
+  background-color: #1d871e;
+  color: white;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.75rem;
+  margin-top: 0.5rem;
+  padding-top: 0.15rem;
+}
+
+.service {
+  display: flex;
+  gap: 0.75rem;
+  height: 1.75rem;
+}
+
+.logo {
+  width: 15rem;
+  height: 100%;
+  margin-right: auto;
+}
+
+.cadence-header .top {
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+}
+
+.arrow-icon {
+  padding-top: 0.1rem;
+}
