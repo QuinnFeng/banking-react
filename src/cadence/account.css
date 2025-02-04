@@ -1,11 +1,23 @@
+.cadence-top {
+  background-color: var(--cadence);
+  height: 1rem;
+  width: 100%;
+  display: block;
+}
+
+.flex {
+  display: flex;
+}
+
 .main {
   color: var(--cadence);
+  position: relative;
 }
 .cadence-header {
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding: 0 2rem;
+  padding: 0 3rem 0 2rem;
 }
 
 .initials {
@@ -21,12 +33,18 @@
   margin-right: 0.75rem;
   margin-top: 0.5rem;
   padding-top: 0.15rem;
+  z-index: -1;
 }
 
 .service {
   display: flex;
   gap: 0.75rem;
   height: 1.75rem;
+}
+
+.service span:first-child {
+  display: flex;
+  align-items: center;
 }
 
 .logo {
@@ -43,4 +61,403 @@
 
 .arrow-icon {
   padding-top: 0.1rem;
+}
+
+.navs-main {
+  display: flex;
+  gap: 2rem;
+  padding-left: 1rem;
+}
+
+.navs-main li {
+  color: var(--cadence);
+  font-weight: 500;
+  font-size: 1.25rem;
+  position: relative;
+  display: inline-flex;
+}
+
+.navs-main li.active::after {
+  content: "";
+  position: absolute;
+  width: calc(100% - 0.35rem); /* Start from 0 width */
+  height: 2px;
+  font-weight: 600;
+  background-color: #1d871e;
+  bottom: -1px;
+  left: 0;
+  transition: width 0.7s ease-in-out;
+}
+
+.navs-main li.active:hover::after {
+  width: 0; /* Animate to full width */
+}
+
+.account-main {
+  margin-top: 0.18rem;
+  background-image: url("../assets/cadence-bg-desktop.jpg");
+  width: 100%;
+  height: auto; /* Set height to 100% of the viewport height */
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 76% 22%;
+  padding: 3rem;
+  justify-content: space-between;
+}
+
+.summary {
+  display: flex;
+  flex-direction: column;
+}
+
+.resolution {
+  background-color: #3a5cb7;
+  border-radius: 10px;
+  text-align: center;
+  padding: 2rem 2rem;
+  color: white;
+  font-size: 1.25rem;
+}
+
+.balance {
+  background-color: white;
+  border-radius: 5px;
+  padding: 2rem 2rem;
+}
+
+.section-header {
+  color: black;
+  font-size: 2rem;
+}
+
+.edit-text {
+  color: #80a7ad;
+  margin: 1.2rem 0 1.8rem;
+}
+
+.balance hr,
+.quick-links hr {
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.account-balance {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.account-info *:hover {
+  cursor: pointer;
+}
+
+.account-balance h3 {
+  font-size: 1.75rem;
+  margin: 0;
+}
+
+.account-balance p {
+  color: #828282;
+  font-size: 1rem;
+}
+
+.account-info h3 {
+  color: var(--cadence);
+}
+
+.available-balance {
+  display: flex;
+  align-items: end;
+  flex-direction: column;
+}
+
+.pay-online {
+  background-color: #cae6ff;
+  border-radius: 5px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+  margin-bottom: 2rem;
+}
+
+.pay-online p {
+  color: black;
+  font-size: 1.75rem;
+  line-height: 1.2;
+}
+
+.pay-online button {
+  border-radius: 5px;
+  border: none;
+  background-color: #1d871e;
+  color: white;
+  text-align: center;
+  padding: 0.75rem 3rem;
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.quick-links {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.quick-links h3 {
+  line-height: 1.2;
+  font-size: 1.75rem;
+  font-weight: 500;
+}
+
+.quick-links p:first-child {
+  margin-top: 1.5rem;
+}
+
+.quick-links hr {
+  margin-bottom: 1.5rem;
+}
+
+.quick-links p {
+  color: #407b84;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 3rem 2rem 2rem;
+  color: #4a4a4a;
+  font-size: 1rem;
+}
+
+.footer .logo {
+  margin-right: unset;
+}
+
+.footer div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.fdic {
+  margin-right: 10rem;
+}
+
+.fdic p:first-child {
+  display: flex;
+  align-items: center;
+}
+
+.fdic-image {
+  width: 3rem;
+  height: auto;
+}
+
+.house-icon {
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.chat {
+  display: flex;
+  background-color: #1d871e;
+  color: white;
+  font-size: 1.5rem;
+  width: 12rem;
+  padding: 1rem;
+  text-wrap: nowrap;
+  position: fixed; /* Changed from absolute to fixed */
+  height: auto;
+  bottom: 2rem;
+  right: 2rem;
+  border-radius: 2.25rem;
+}
+
+.chat-icon {
+  font-size: 2.5rem;
+  margin-right: 0.75rem;
+}
+
+.checking {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+.checking-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fafafa;
+  padding: 2rem;
+}
+
+.balances h3 {
+  font-size: 1.75rem;
+  font-weight: 500;
+}
+
+.balances > p {
+  color: #707070;
+}
+
+.balance-details {
+  display: flex;
+  gap: 0.5rem;
+  color: black;
+  justify-content: center;
+}
+
+.balance-details hr {
+  height: 4rem;
+  width: 5px;
+  background-color: #9e9e9e;
+}
+
+.consistent {
+  background-color: #fafafa;
+  gap: 5rem;
+  margin-top: 1rem;
+  margin-left: 0.1rem;
+}
+
+.operations {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem 1rem;
+}
+
+.operations span {
+  display: flex;
+  align-items: center;
+}
+
+.operations span:hover,
+.quick-links p:hover {
+  text-decoration: underline;
+}
+
+.operation {
+  font-size: 1.3125rem;
+  margin-right: 0.3125rem;
+}
+
+.balance-details div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.balance-details div p:nth-child(2) {
+  color: #707070;
+}
+
+.balance-details div p:nth-child(1) {
+  font-size: 1rem;
+  line-height: 1.5;
+  font-family: "Ubuntu", "Open Sans", Arial, Helvetica;
+}
+
+.history {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 0 2rem;
+  height: 7rem;
+}
+
+.history > div {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+.history > div :not(:last-child)::after {
+  border-right: #004f5b 3px solid;
+  content: " ";
+  height: 1rem;
+  padding-left: 16px;
+}
+
+.history > div span {
+  display: flex;
+  align-items: center;
+  color: #548991;
+}
+
+.history > div span i,
+.history > div span svg {
+  margin-right: 5px;
+  font-size: 1.25rem;
+}
+
+.displaying {
+  background-color: #f2f6f7;
+  display: flex;
+  color: black;
+  padding: 0.875rem 2rem;
+}
+
+.cadence-transactions {
+  padding: 2rem;
+  font-family: "Ubuntu", "Open Sans", Arial, Helvetica;
+  color: #626262;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.transaction-header,
+.cadence-transaction {
+  display: grid;
+  grid-template-columns: 1fr 4fr 7fr 4fr 4fr 3.5fr;
+  padding: 0.75rem 1rem;
+}
+
+.transaction-header span:first-child,
+.cadence-transaction span:first-child {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.transaction-header span:first-child,
+.cadence-transaction span:first-child {
+  text-align: center;
+}
+
+.transaction-header span:nth-child(n + 2):nth-child(-n + 4),
+.cadence-transaction span:nth-child(n + 2):nth-child(-n + 4) {
+  text-align: start;
+}
+
+.transaction-header span:nth-last-child(-n + 2),
+.cadence-transaction span:nth-last-child(-n + 2) {
+  text-align: end;
+}
+
+.posted {
+  background-color: #f5f5f5;
+  color: #828282;
+  padding: 0.125rem 2rem;
+  border-top: 1px solid #ececec;
+  border-bottom: 1px solid #ececec;
+}
+
+.left-arrow {
+  font-size: 1.5rem;
+}
+
+.cadence-transaction {
+  border-bottom: 1px solid #ececec;
 }

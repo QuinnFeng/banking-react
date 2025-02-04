@@ -11,6 +11,7 @@ import { AddTransaction } from "./components/addTransaction";
 import { descriptions } from "./util/const";
 import { transactionRequests } from "./api";
 import { LandingPage } from "./cadence/landing";
+import { Account } from "./cadence/account";
 
 function App() {
   const [page, setPage] = useState("My Accounts");
@@ -54,7 +55,11 @@ function App() {
           <option key={description}>{description}</option>
         ))}
       </datalist>
-      <LandingPage />
+      <TransactionProvider>
+        <LandingPage />
+        <Account />
+      </TransactionProvider>
+      {/* <LandingPage /> */}
     </>
   );
 }
