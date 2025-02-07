@@ -50,15 +50,12 @@ function App() {
           </section>
         )}
       </TransactionProvider> */}
+      <LandingPage />
       <datalist id="descriptions">
         {descriptions.map((description) => (
           <option key={description}>{description}</option>
         ))}
       </datalist>
-      <TransactionProvider>
-        <LandingPage />
-        <Account />
-      </TransactionProvider>
       {/* <LandingPage /> */}
     </>
   );

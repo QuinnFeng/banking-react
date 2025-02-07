@@ -4,10 +4,10 @@ import { SetStateAction, useEffect, useState } from "react";
 import { PiHouseLineBold } from "react-icons/pi";
 import FDIC from "../assets/FDIC.svg";
 import { RiChat3Line } from "react-icons/ri";
-import { BsCreditCard2FrontFill } from "react-icons/bs";
-import { IoDocumentTextSharp } from "react-icons/io5";
-import { HiBellAlert } from "react-icons/hi2";
-import { BsFillTicketDetailedFill } from "react-icons/bs";
+import check from "../assets/check.svg";
+import statement from "../assets/statement.svg";
+import account from "../assets/account.svg";
+import alert from "../assets/alert.svg";
 import { IoMdDownload } from "react-icons/io";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { transaction } from "../types";
@@ -29,8 +29,8 @@ export const Account = () => {
     useState<(typeof categories)[number]>("Accounts");
   const [toTransactions, setToTransactions] = useState(false);
   const [tid, setTid] = useState(0);
-  const { transactions} = useTransactions();
-  const pageCount = 20;
+  const { transactions } = useTransactions();
+  const pageCount = 40;
   const [pageOffset, setPageOffset] = useState(0);
   const [repositories, setRepositories] = useState<transaction[]>([]);
 
@@ -44,9 +44,6 @@ export const Account = () => {
       (pageOffset + 1) * pageCount
     );
   }
-  // useEffect(() => {
-  //   console.log(transactions);
-  // }, [transactions]);
 
   const handlePageChange = (event: { selected: SetStateAction<number> }) => {
     setPageOffset(event.selected);
@@ -91,6 +88,7 @@ export const Account = () => {
                 onClick={() => setCategory(c)}
               >
                 <span>{c}</span>
+                {/* <span></span> */}
                 {index == 0 || index == 1 || index == 3 ? (
                   <MdKeyboardArrowDown className="arrow-icon" />
                 ) : (
@@ -128,21 +126,53 @@ export const Account = () => {
                     </div>
                     <div className="operations">
                       <span>
-                        <BsCreditCard2FrontFill className="operation" />
+                        <i>
+                          <img
+                            src={check}
+                            alt="check"
+                            width="24"
+                            height="24"
+                            className="operation"
+                          />
+                        </i>
                         Order Checks
                       </span>
                       <span>
-                        <BsFillTicketDetailedFill className="operation backpack" />
+                        <i>
+                          <img
+                            src={account}
+                            alt="account"
+                            width="24"
+                            height="24"
+                            className="operation"
+                          />
+                        </i>
                         Details
                       </span>
                       <span></span>
                       <span>
-                        <IoDocumentTextSharp className="operation" />
+                        <i>
+                          <img
+                            src={statement}
+                            alt="statement"
+                            width="24"
+                            height="24"
+                            className="operation"
+                          />
+                        </i>
                         Statements
                       </span>
                       <span></span>
                       <span>
-                        <HiBellAlert className="operation" />
+                        <i>
+                          <img
+                            src={alert}
+                            alt="alert"
+                            width="24"
+                            height="24"
+                            className="operation"
+                          />
+                        </i>
                         Alerts
                       </span>
                     </div>
@@ -163,8 +193,11 @@ export const Account = () => {
 
                   <div className="displaying">
                     <p>
-                      <b>Displaying:</b>Transaction Type:All Transaction
-                      Type;Date range: Last 90 Days
+                      <b>Displaying: </b>
+                      <span>
+                        Transaction Type:All Transaction Type;Date range: Last
+                        90 Days
+                      </span>
                     </p>
                   </div>
 
@@ -172,15 +205,18 @@ export const Account = () => {
                     <div className="transaction-header">
                       <span></span>
                       <span>Date</span>
-                      <span> Description</span>
+                      <span>Description</span>
                       <span>Type</span>
                       <span>Amount</span>
                       <span>Balance</span>
                     </div>
                     <div className="posted">Posted</div>
                     <div className="transactions-history">
-                      {transactions.map((t: transaction) => (
-                        <div className="cadence-transaction">
+                      {repositories.map((t: transaction) => (
+                        <div
+                          className="cadence-transaction"
+                          key={t.id}
+                        >
                           <span>
                             <MdOutlineKeyboardArrowRight className="left-arrow" />
                           </span>
@@ -212,6 +248,7 @@ export const Account = () => {
                         containerClassName="pagination"
                         activeClassName="active"
                         forcePage={pageOffset}
+                        className="pagination"
                       />
                     </div>
                   </div>

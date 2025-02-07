@@ -234,7 +234,7 @@ tbody tr:last-child td {
 
 .pagination {
   display: flex;
-  margin: 0.25rem 0 0.5rem;
+  margin: 2rem 0 0;
 }
 
 /* .page-link {

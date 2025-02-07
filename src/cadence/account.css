@@ -292,6 +292,7 @@
   display: flex;
   flex-direction: column;
   background-color: white;
+  border-radius: 5px;
 }
 
 .checking-header {
@@ -300,6 +301,8 @@
   align-items: center;
   background-color: #fafafa;
   padding: 2rem;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
 }
 
 .balances h3 {
@@ -411,7 +414,7 @@
 .cadence-transactions {
   padding: 2rem;
   font-family: "Ubuntu", "Open Sans", Arial, Helvetica;
-  color: #626262;
+  color: #333;
   font-size: 1.25rem;
   font-weight: 500;
 }
@@ -419,7 +422,7 @@
 .transaction-header,
 .cadence-transaction {
   display: grid;
-  grid-template-columns: 1fr 4fr 7fr 4fr 4fr 3.5fr;
+  grid-template-columns: 1fr 4fr 7.5fr 3.5fr 3.5fr 3.5fr;
   padding: 0.75rem 1rem;
 }
 
@@ -450,14 +453,22 @@
   background-color: #f5f5f5;
   color: #828282;
   padding: 0.125rem 2rem;
-  border-top: 1px solid #ececec;
-  border-bottom: 1px solid #ececec;
+  border-top: 3px solid #dcdcdc;
+  border-bottom: 3px solid #dcdcdc;
 }
 
 .left-arrow {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
 }
 
 .cadence-transaction {
   border-bottom: 1px solid #ececec;
+}
+
+.cadence-transaction span {
+  font-size: 1rem;
+}
+
+.pagination {
+  justify-self: center;
 }
