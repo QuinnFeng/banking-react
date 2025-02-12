@@ -14,6 +14,7 @@ import { transaction } from "../types";
 import { useTransactions } from "../components/TransactionProvider";
 import { formatNumber } from "../util/util";
 import ReactPaginate from "react-paginate";
+import { AddTransaction } from "../components/addTransaction";
 
 const categories = [
   "Accounts",
@@ -28,9 +29,8 @@ export const Account = () => {
   const [category, setCategory] =
     useState<(typeof categories)[number]>("Accounts");
   const [toTransactions, setToTransactions] = useState(false);
-  const [tid, setTid] = useState(0);
-  const { transactions } = useTransactions();
-  const pageCount = 40;
+  const { transactions, balance } = useTransactions();
+  const pageCount = 35;
   const [pageOffset, setPageOffset] = useState(0);
   const [repositories, setRepositories] = useState<transaction[]>([]);
 
@@ -60,8 +60,8 @@ export const Account = () => {
               alt="logo"
               className="logo"
             />
-            <span className="initials">ZF</span>
             <div className="service">
+              <span className="initials">ZF</span>
               <span>
                 Zhiheng Feng
                 <MdKeyboardArrowDown />
@@ -88,7 +88,7 @@ export const Account = () => {
                 onClick={() => setCategory(c)}
               >
                 <span>{c}</span>
-                {/* <span></span> */}
+                <span className="under"></span>
                 {index == 0 || index == 1 || index == 3 ? (
                   <MdKeyboardArrowDown className="arrow-icon" />
                 ) : (
@@ -111,14 +111,14 @@ export const Account = () => {
                         <div className="balance-details">
                           <hr />
                           <div>
-                            <p>${"100.00"}</p>
+                            <p>{formatNumber(balance)}</p>
                             <p>Available Balance</p>
                           </div>
                         </div>
                         <div className="balance-details">
                           <hr />
                           <div>
-                            <p>${"100.00"}</p>
+                            <p>{formatNumber(balance)}</p>
                             <p>Current Balance</p>
                           </div>
                         </div>
@@ -177,7 +177,9 @@ export const Account = () => {
                       </span>
                     </div>
                   </div>
-
+                  <div style={{ display: "none" }}>
+                    <AddTransaction />
+                  </div>
                   <div className="history">
                     <h2>History</h2>
                     <div>
@@ -222,9 +224,11 @@ export const Account = () => {
                           </span>
                           <span>{t.date}</span>
                           <span>{t.description}</span>
-                          <span>{t.isDeposit ? "Deposit" : "Withdraw"}</span>
-                          <span>
-                            {t.isDeposit ? "" : formatNumber(t.amount)}
+                          <span>{t.type}</span>
+                          <span
+                            style={{ color: t.isDeposit ? "#1d871e" : "#333" }}
+                          >
+                            {(t.isDeposit ? "+" : "") + formatNumber(t.amount)}
                           </span>
                           <span>{formatNumber(t.balance)}</span>
                         </div>
@@ -277,7 +281,7 @@ export const Account = () => {
                       <p>***3433</p>
                     </div>
                     <div className="available-balance">
-                      <h3>${"100.00"}</h3>
+                      <h3>${balance.toFixed(2)}</h3>
                       <p>Available Balance</p>
                     </div>
                   </div>

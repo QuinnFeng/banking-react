@@ -30,8 +30,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 0.75rem;
-  margin-top: 0.5rem;
   padding-top: 0.15rem;
   z-index: -1;
 }
@@ -77,20 +75,25 @@
   display: inline-flex;
 }
 
-.navs-main li.active::after {
+.under {
   content: "";
   position: absolute;
-  width: calc(100% - 0.35rem); /* Start from 0 width */
+  width: 0;
+  /* Start from 0 width */
   height: 2px;
   font-weight: 600;
   background-color: #1d871e;
   bottom: -1px;
   left: 0;
-  transition: width 0.7s ease-in-out;
+  transition: width 0.3s ease-in-out;
 }
 
-.navs-main li.active:hover::after {
-  width: 0; /* Animate to full width */
+.navs-main li.active .under {
+  width: calc(100% - 0.15rem);
+}
+
+.navs-main li:hover .under {
+  width: calc(100% - 0.15rem);
 }
 
 .account-main {

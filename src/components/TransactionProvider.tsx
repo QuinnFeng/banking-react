@@ -19,7 +19,8 @@ type TransactionContextType = {
     date: string,
     description: string,
     isDeposit: boolean,
-    amount: number
+    amount: number,
+    type: string
   ) => void;
   deleteTransaction: (id: number) => void;
 };
@@ -58,7 +59,8 @@ export const TransactionProvider = ({ children }: { children: ReactNode }) => {
     date: string,
     description: string,
     isDeposit: boolean,
-    amount: number
+    amount: number,
+    type:string
   ) => {
     const nextBalance = isDeposit ? balance + amount : balance - amount;
     const nextTransaction: Partial<transaction> = {
@@ -67,6 +69,7 @@ export const TransactionProvider = ({ children }: { children: ReactNode }) => {
       isDeposit,
       amount,
       balance: nextBalance,
+      type
     };
     setIsLoading(true);
     transactionRequests

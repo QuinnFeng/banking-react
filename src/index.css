@@ -247,7 +247,7 @@ tbody tr:last-child td {
 } */
 
 .page-item {
-  border: 1px solid #cccccc;
+  /* border: 1px solid #cccccc; */
   text-align: center;
   height: 2rem;
   line-height: 2rem;
@@ -259,15 +259,15 @@ tbody tr:last-child td {
 }
 
 .page-link {
-  color: var(--font-color-blue);
+  color: #555;
 }
 
-.page-item.active {
+/* .page-item.active {
   background-color: var(--font-color-blue);
-}
+} */
 
 .page-item.active .page-link {
-  color: white;
+  color: var(--cadence);
 }
 
 .page-item.disabled .page-link {

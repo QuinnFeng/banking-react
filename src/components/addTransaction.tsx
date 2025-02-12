@@ -1,5 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { useTransactions } from "./TransactionProvider";
+import { descriptions, types } from "../util/const";
 
 export const AddTransaction = () => {
   const [isDeposit, setIsDeposit] = useState(false);
@@ -8,10 +9,11 @@ export const AddTransaction = () => {
   const [formattedDate, setFormattedDate] = useState("");
   const [description, setDescription] = useState("");
   const { isLoading, createTransaction } = useTransactions();
+  const [type, setType] = useState("");
 
   const formSubmitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    createTransaction(formattedDate, description, isDeposit, amount);
+    createTransaction(formattedDate, description, isDeposit, amount, type);
     resetValues();
   };
 
@@ -19,6 +21,7 @@ export const AddTransaction = () => {
     setIsDeposit(false);
     setAmount(0);
     setDescription("");
+    setType("");
   };
 
   const handleDateChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -27,6 +30,10 @@ export const AddTransaction = () => {
     const formatted = `${month}/${day}/${year}`;
     setDate(selectedDate);
     setFormattedDate(formatted);
+  };
+
+  const handleTypeChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setType(e.target.value as (typeof types)[number]);
   };
 
   return (
@@ -71,6 +78,17 @@ export const AddTransaction = () => {
             />
           </div>
           <div>
+            <label htmlFor="typePicker">type: </label>
+            <input
+              type="text"
+              id="type"
+              value={type}
+              onChange={handleTypeChange}
+              disabled={isLoading}
+              list={"types"}
+            />
+          </div>
+          <div>
             <label>
               <input
                 id="deposit"
@@ -87,6 +105,17 @@ export const AddTransaction = () => {
             value="submit"
           />
         </form>
+        <datalist id="descriptions">
+          {descriptions.map((description) => (
+            <option key={description}>{description}</option>
+          ))}
+        </datalist>
+
+        <datalist id="types">
+          {types.map((type) => (
+            <option key={type}>{type}</option>
+          ))}
+        </datalist>
       </section>
     </>
   );

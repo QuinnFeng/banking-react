@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { AddTransaction } from "./components/addTransaction.tsx";
-import { AccountData } from "./cadence/accountWithData.tsx";
 import { TransactionProvider } from "./components/TransactionProvider.tsx";
 import { Account } from "./cadence/account.tsx";
 

@@ -1,6 +1,6 @@
 import { account, transaction } from "./types";
-//const baseUrl = "https://db-json-seven-lime.vercel.app";
-const baseUrl = "http://localhost:3000";
+//const baseUrl = "http://localhost:3000";
+const baseUrl = "https://finanicial-transaction-api.onrender.com";
 const headers = {
   "Content-Type": "application/json",
   credentials: "include", // Include credentials in the request
@@ -27,11 +27,19 @@ const postTransaction = ({
   isDeposit,
   amount,
   balance,
+  type,
 }: Partial<transaction>) => {
   return fetch(`${baseUrl}/transactions`, {
     method: "POST",
     headers,
-    body: JSON.stringify({ date, description, isDeposit, amount, balance }),
+    body: JSON.stringify({
+      date,
+      description,
+      isDeposit,
+      amount,
+      balance,
+      type,
+    }),
   }).then((data) => data.json());
 };
 
