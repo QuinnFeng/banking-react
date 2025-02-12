@@ -1,23 +1,23 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import "./App.css";
 import "./index.css";
 import "./cadence/cadence.css";
-import { Header } from "./components/header";
-import { Navigations } from "./components/navigation";
-import { Transactions } from "./components/transactions";
-import { Balance } from "./components/balance";
-import { TransactionProvider } from "./components/TransactionProvider";
-import { AddTransaction } from "./components/addTransaction";
-import { descriptions } from "./util/const";
-import { transactionRequests } from "./api";
+// import { Header } from "./components/header";
+// import { Navigations } from "./components/navigation";
+// import { Transactions } from "./components/transactions";
+// import { Balance } from "./components/balance";
+// import { TransactionProvider } from "./components/TransactionProvider";
+// import { AddTransaction } from "./components/addTransaction";
+// import { descriptions } from "./util/const";
+// import { transactionRequests } from "./api";
+// import { Account } from "./cadence/account";
 import { LandingPage } from "./cadence/landing";
-import { Account } from "./cadence/account";
 
 function App() {
-  const [page, setPage] = useState("My Accounts");
-  const [category, setCategory] = useState("My Accounts");
-  const [type, setType] = useState("Summary");
-  const [isCreate, setIsCreate] = useState(false);
+  // const [page, setPage] = useState("My Accounts");
+  // const [category, setCategory] = useState("My Accounts");
+  // const [type, setType] = useState("Summary");
+  // const [isCreate, setIsCreate] = useState(false);
 
   return (
     <>
