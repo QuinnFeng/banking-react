@@ -1,0 +1,33 @@
+.loading-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading {
+  display: flex;
+  gap: 0.25rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 4.5rem;
+  height: auto;
+}
+
+.loading > * {
+  flex: 0 0 calc(50% - 0.25rem);
+  max-width: calc(50% - 0.25rem);
+}
+
+.square {
+  width: 2rem;
+  height: 2rem;
+  background: #ddd;
+  animation: pulse 1s infinite alternate;
+}
+
+.square.active {
+  background: gray;
+}
